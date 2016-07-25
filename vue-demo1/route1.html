@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+		<title></title>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script type="text/javascript" src="vue-router.js" ></script>
+	</head>
+	<body>
+		<div id="app1">
+			<a v-link = '{ path:"/foo"}'>Go to foo</a>
+			<a v-link = '{ path:"/bar"}'>Go to bar</a>
+			<router-view></router-view>
+		</div>
+		
+	</body>
+	<script>
+		var Foo = Vue.extend({
+			template:'<p>123</p>'
+		});
+		var Bar = Vue.extend({
+			template:'<p>456</p>'
+		});
+		//实例一个路由对象
+		
+		var router = new VueRouter();
+		
+		//用对象的map()方法
+		router.map({
+			'/foo':{
+				component:Foo
+			},
+			'/bar':{
+				component:Bar
+			}
+		});
+		var App = Vue.extend({});
+		router.start(App,'#app1')
+	</script>
+</html>

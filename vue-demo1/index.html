@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+		<title></title>
+		<script type="text/javascript" src="vue.js" ></script>
+	</head>
+	<body>
+		<article v-on:click='onClick()' class="demo">
+			{{name}}
+		</article>
+	</body>
+	<script>
+		//构造函数，理解为angular里面的控制器
+		var demo = new Vue({
+			//这个对象里面的参数第一个是写一个选择器：el:[selector]
+			el:'.demo',
+			data:{
+				name:'yao',
+				skill:'ni',
+				url:''
+			},
+			methods:{
+				onClick:function(){
+				alert("nihao")
+				}
+			}
+		});
+		demo.$data.url = 'www';
+		console.log(demo);
+	</script>
+</html>
